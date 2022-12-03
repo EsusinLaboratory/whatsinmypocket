@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>테스트</title>
+        <link rel='stylesheet', href = './css/style.css'>
+    </head>
+    <body>
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId            : '661770698760184',
+                    autoLogAppEvents : true,
+                    xfbml            : true,
+                    version          : 'v15.0'
+                });
+                };
+        </script>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+        <div style="font-family: nanum; border: 1px solid #3b5998; padding: 10px; height: auto; min-height: 100px; overflow: auto;">
+            <center><h1 sytle = 'font-family: nanum; font-size: 350%;'>Facebook 테스트 by psanghyun812</h1></center>
+            <center><h1 style="font-family: nanum; font-size:380%">나의 주머니 속에 무엇이 들어 있을까?</h1></center>
+            <center><p style = "font-family: nanum; font-size: 350%">아래의 빈칸에 이름을 입력해주세요</p></center>
+            <center><input style = "font-family: nanum; font-size: 350%;" type="text" id="input"><br></center>
+            <center><button style = "font-family: nanum; font-size: 350%;" onclick="input()">완료!</button></center>
+            <script>
+                
+                function input(){
+                    var input = document.getElementById("input").value;
+                    console.log(input)
+                    if(input == ""){
+                        alert("이름을 입력하지 않았습니다. 이름을 입력해주세요.");
+                    }else{
+                        let whatsinyourpocket = ["자신감이", '자존감이', '외모가', '행운이', '성실함이', '친절함이', '귀여움이', '똑똑함이', '돈이', '행복함이']
+                        var jbRandom = Math.random();
+                        
+                        var result = whatsinyourpocket[Math.floor(jbRandom*whatsinyourpocket.length)];
+                        document.write("<link rel='stylesheet', href = './css/style.css'>");
+                        document.write('<div style="font-family: nanum; border: 1px solid gold; padding: 10px; height: auto; min-height: 100px; overflow: auto;">');
+                        document.write('<center><h1 style="font-family: nanum; font-size:380%">'+input+'님의 주머니</h1></center>');
+                        document.write('<center><p style = "font-family: nanum; font-size: 350%">'+input+'님의 주머니 속에는 '+result+' '+Math.floor(jbRandom*100)+'만큼 들어있습니다.</p></center>');
+                        document.write('<center><A href="index.html"><button style = "font-family: nanum; font-size: 350%;">다시 한 번 해보기!</button></A></center>');
+                        document.write('<center><button style = "font-family: nanum; font-size: 350%;" onclick="shareit()">Facebook 피드에 공유</button></center>');
+                        document.write('</div>');
+                    }
+                }
+                function shareit() {
+                    FB.ui({
+                        method        : 'share_open_graph',
+                        action_type: 'og.shares',
+                        action_properties: JSON.stringify({
+                            object: {
+                                'og:url': 'https://www.naver.com',
+                                'og:title': '주머니',
+                                'og:description': '안',
+                            }
+                        })
+                    })}
+
+            </script>
+        </div>
+        <div style="font-family: nanum; border: 1px solid #3b5998; padding: 10px; height: auto; min-height: 100px; overflow: auto;">
+            <p style = "font-family: nanum; font-size: 300%">제작자 이메일 - psanghyun812@gmail.com<br>↓ 제작자 SNS</p>
+            <A href="https://www.facebook.com/profile.php?id=100078446180341"><p style = "font-family: nanum; font-size: 300%;">제작자 Facebook 바로가기</p></A>
+            <A href="https://www.instagram.com/sanghyeon7375/"><p style = "font-family: nanum; font-size: 300%;">제작자 Instagram 바로가기</p></A>
+        </div>
+    </body>
+</html>

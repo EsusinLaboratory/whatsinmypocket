@@ -1,0 +1,11 @@
+@font-face {
+    font-family: nanum;
+    font-style: normal;
+    src: url('./fonts/nanum.ttf');
+    src: url('./fonts/nanum.woff');
+
+}
+
+body {
+    font-family: nanum;
+}
